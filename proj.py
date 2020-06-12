@@ -1,5 +1,6 @@
 import healthsystem as spsus
 # NÃO FIZ A FUNÇÃO MC 
+
 def main():
 
    while True:
@@ -198,7 +199,6 @@ def commandLMS(commands):
          print("Serviço sem marcações.")
    else:
       print("Serviço inexistente.")
-
 
 def commandG(commands):
 #Gravar unidade de saúde
