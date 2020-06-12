@@ -59,6 +59,7 @@ def commandRP(commands,spsus):
 
 def commandRU(commands,spsus):
 #Registar utente
+#pussy
    pass
 
 def commandRF(commands,spsus):
