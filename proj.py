@@ -46,8 +46,8 @@ def main():
 
 def commandRP(commands,spsus):
 #Regista profissional
-   category = commands[0]
-   name = commands[1]
+   category = commands[1]
+   name = commands[2]
    if spsus.has_category(category):
       if spsus.has_professional(name,category):
          print("Profissional existente.")
@@ -59,11 +59,25 @@ def commandRP(commands,spsus):
 
 def commandRU(commands,spsus):
 #Registar utente
-   pass
-
+   name = commands[1]
+   age_range= commands[2]
+   if spsus.has_user(name):
+      print("Utente existente.")
+   else:
+      if spsus.has_age_range(age_range):
+         spsus.add_user(name,age_range)
+         print("Utente registado com sucesso.")
+      else:
+         print("Faixa etária inexistente.")
+         
 def commandRF(commands,spsus):
 #Registar família
-   pass
+   family_name = commands[1]
+   if spsus.has_family_name(family_name):
+      print("Família existente.")
+   else:
+      spsus.add_family_name(family_name)
+      print("Família registada com sucesso.")
 
 def commandAF(commands,spsus):
 #Associar utente a família 
