@@ -1,5 +1,9 @@
 import healthsystem as spsus
+<<<<<<< HEAD
 
+=======
+#me respeita
+>>>>>>> 4ec9c31a46ddcb3ae844df8bf4e42dfd529b6096
 def main():
 
    while True:
