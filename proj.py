@@ -59,6 +59,7 @@ def commandRP(commands,spsus):
 
 def commandRU(commands,spsus):
 #Registar utente
+<<<<<<< HEAD
    name = commands[1]
    age_range= commands[2]
    if spsus.has_user(name):
@@ -70,6 +71,11 @@ def commandRU(commands,spsus):
       else:
          print("Faixa etária inexistente.")
          
+=======
+#pussy
+   pass
+
+>>>>>>> 4c56d33b851994f3461fa069dfe97d8ba7418bec
 def commandRF(commands,spsus):
 #Registar família
    family_name = commands[1]
