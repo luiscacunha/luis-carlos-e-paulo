@@ -82,7 +82,9 @@ def commandRF(commands,spsus):
 def commandAF(commands,spsus):
 #Associar utente a família 
    name = commands[1]
-   pass
+   family_name = commands[2]
+   if spsus.has_family_name(family_name):
+      
 
 def commandDF(commands,spsus):
 #Desassociar utente de famíla
