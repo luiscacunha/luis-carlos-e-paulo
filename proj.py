@@ -1,5 +1,5 @@
 import healthsystem as spsus
-#Cão de merda
+#me respeita
 def main():
 
    while True:
