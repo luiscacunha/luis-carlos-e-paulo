@@ -1,9 +1,5 @@
 import healthsystem as spsus
-<<<<<<< HEAD
 
-=======
-#me respeita
->>>>>>> 4ec9c31a46ddcb3ae844df8bf4e42dfd529b6096
 def main():
 
    while True:
@@ -85,6 +81,7 @@ def commandRF(commands,spsus):
 
 def commandAF(commands,spsus):
 #Associar utente a família 
+   name = commands[1]
    pass
 
 def commandDF(commands,spsus):
