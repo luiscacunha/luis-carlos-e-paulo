@@ -1,5 +1,5 @@
 import healthsystem as spsus
-
+# NÃO FIZ A FUNÇÃO MC 
 def main():
 
    while True:
@@ -8,43 +8,43 @@ def main():
          exit(0)
       commands = line.split(" ")
       if commands[0] == "RP":
-         commandRP(commands,spsus)
+         commandRP(commands)
       elif commands[0] == "RU":
-         commandRU(commands,spsus)
+         commandRU(commands)
       elif commands[0] == "RF":
-         commandRF(commands,spsus)
+         commandRF(commands)
       elif commands[0] == "AF":
-         commandAF(commands,spsus)
+         commandAF(commands)
       elif commands[0] == "DF":
-         commandDF(commands,spsus)
+         commandDF(commands)
       elif commands[0] == "LP":
-         commandLP(commands,spsus)
+         commandLP()
       elif commands[0] == "LU":
-         commandLU(commands,spsus)
+         commandLU()
       elif commands[0] == "LF":
-         commandLF(commands,spsus)
+         commandLF()
       elif commands[0] == "MF":
-         commandMF(commands,spsus)
+         commandMF(commands)
       elif commands[0] == "MC":
-         commandMC(commands,spsus)
+         commandMC(commands)
       elif commands[0] == "CC":
-         commandCC(commands,spsus)
+         commandCC(commands)
       elif commands[0] == "LCU":
-         commandLCU(commands,spsus)
+         commandLCU(commands)
       elif commands[0] == "LCF":
-         commandLCF(commands,spsus)   
+         commandLCF(commands)   
       elif commands[0] == "LSP":
-         commandLSP(commands,spsus)         
+         commandLSP(commands)         
       elif commands[0] == "LMS":
-         commandLMS(commands,spsus)         
+         commandLMS(commands)         
       elif commands[0] == "G":
-         commandG(commands,spsus)
+         commandG(commands)
       elif commands[0] == "L":
-         commandL(commands,spsus)      
+         commandL(commands)      
       else:
          print("Instrução inválida.")
 
-def commandRP(commands,spsus):
+def commandRP(commands):
 #Regista profissional
    category = commands[1]
    name = commands[2]
@@ -57,7 +57,7 @@ def commandRP(commands,spsus):
    else:
       print("Categoria inexistente.")
 
-def commandRU(commands,spsus):
+def commandRU(commands):
 #Registar utente
    name = commands[1]
    age_range= commands[2]
@@ -70,72 +70,156 @@ def commandRU(commands,spsus):
       else:
          print("Faixa etária inexistente.")
          
-def commandRF(commands,spsus):
+def commandRF(commands):
 #Registar família
    family_name = commands[1]
-   if spsus.has_family_name(family_name):
+   if spsus.has_family(family_name):
       print("Família existente.")
    else:
-      spsus.add_family_name(family_name)
+      spsus.add_family(family_name)
       print("Família registada com sucesso.")
 
-def commandAF(commands,spsus):
+def commandAF(commands):
 #Associar utente a família 
-   name = commands[1]
+   user_name = commands[1]
    family_name = commands[2]
-   if spsus.has_family_name(family_name):
-      
+   if spsus.has_family(family_name):
+      if spsus.has_user(user_name):
+         if not spsus.user_have_family(user_name):
+            spsus.associate_family(user_name,family_name)
+            print("Utente associado a família.")
+         else:
+            print("Utente pertence a família.")
+      else:
+         print("Utente inexistente.")
+   else:
+      print("Família inexistente.")
 
-def commandDF(commands,spsus):
+def commandDF(commands):
 #Desassociar utente de famíla
-   pass
+   user_name = commands[1]
+   if spsus.has_user(user_name):
+      if spsus.user_have_family(user_name):
+         spsus.disassociate_user(user_name)
+         print("Utente desassociado de família.")
+      else:
+         print("Utente não pertence a família.")
+   else:
+      print("Utente inexistente.")
 
-def commandLP(commands,spsus):
+
+def commandLP():
 #Listar profissionais
-   pass
+   if spsus.has_professionals():
+      spsus.show_professionals()
+   else:
+      print("Sem profissionais registados.")
 
-def commandLU(commands,spsus):
+def commandLU():
 #Listar utentes
-   pass
+   if spsus.has_users():
+      spsus.show_users()
+   else:
+      print("Sem utentes registados.")
 
-def commandLF(commands,spsus):
+
+def commandLF():
 #Listar famílias
-   pass
+   if spsus.has_families():
+      spsus.show_families()
+   else:
+      print("Sem famílias registadas.")
 
-def commandMF(commands,spsus):
+def commandMF(commands):
 #Mostrar família
-   pass
+   family_name = commands[1]
+   if spsus.has_family(family_name):
+      spsus.show_family(family_name)
+   else:
+      print("Família inexistente.")
 
-def commandMC(commands,spsus):
+def commandMC(commands):
 #Marcar cuidados a utente
    pass
 
-def commandCC(commands,spsus):
+def commandCC(commands):
 #Cancelar cuidados marcados a utente
-   pass
+   name = commands[1]
+   if spsus.has_user(name):
+      if spsus.has_scheduled(name,"utente"):
+         spsus.cancel_user_scheduled(name)
+         print("Cuidados de saúde desmarcados com sucesso.")
+      else:
+         print("Utente sem cuidados de saúde marcados.")
+   else:
+      print("Utente inexistente.")
 
-def commandLCU(commands,spsus):
+def commandLCU(commands):
 #Listar cuidados marcados a utente
-   pass
+   name = commands[1]
+   if spsus.has_user(name):
+      if spsus.has_scheduled(name,"utente"): 
+         spsus.show_user_scheduled(name)
+      else:
+         print("Utente sem cuidados de saúde marcados.")
+   else:
+      print("Utente inexistente.")
 
-def commandLCF(commands,spsus):
+def commandLCF(commands):
 #Listar cuidados marcados a família  
-   pass
+   family_name = commands[1]
+   if spsus.has_family(name):
+      if spsus.has_scheduled(family_name,ententy,"família"): 
+         spsus.show_family_scheduled(family_name)
+      else:
+         print("Familia sem cuidados de saúde marcados.")
+   else:
+      print("Família inexistente.")
 
-def commandLSP(commands,spsus):
+def commandLSP(commands):
 #Listar serviços marcados a profissional 
-   pass
+   category = commands[1]
+   professional_name = commmands[2]
+   if spsus.has_professional(professional_name):
+      if spsus.has_scheduled(professional_name,"profissional"):
+         spsus.show_professional_scheduled(professional_name)
+      else:
+         print("Profissional de saúde sem marcações.")
+   else:
+      print("Profissional de saúde inexistente.")
 
-def commandLMS(commands,spsus):
+def commandLMS(commands):
 #Listar marcações por tipo de serviço
+   service = commands[1]
+   if spsus.has_service(service):
+      if spsus.has_scheduled(service,"serviço"):
+         spsus.show_service_scheduled()
+      else:
+         print("Serviço sem marcações.")
+   else:
+      print("Serviço inexistente.")
+
+
+def commandG(commands):
+#Gravar unidade de saúde
+   """
+   try:
+        #CODIGO PARA GRAVAÇÃO
+      print("Unidade de saúde gravada.")
+   except Exception as e:
+      print("Ocorreu um erro na gravação.")
+   """
    pass
 
-def commandG(commands,spsus):
-#Gravar
-   pass
-
-def commandL(commands,spsus):
-#Ler
+def commandL(commands):
+#Ler unidade de saúde
+   """
+   try:
+      #CDIGO PARA CARREGAR
+      print("Unidade de saúde carregada.")
+   except Exception as e:
+      print("Ocorreu um erro no carregamento.")
+   """
    pass
 
 if __name__ == "__main__":
