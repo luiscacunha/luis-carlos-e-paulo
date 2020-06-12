@@ -81,6 +81,7 @@ def commandRF(commands,spsus):
 
 def commandAF(commands,spsus):
 #Associar utente a família 
+#Damo da Vanessa
    pass
 
 def commandDF(commands,spsus):
