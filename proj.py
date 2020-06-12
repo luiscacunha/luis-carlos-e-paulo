@@ -168,8 +168,8 @@ def commandLCU(commands):
 def commandLCF(commands):
 #Listar cuidados marcados a família  
    family_name = commands[1]
-   if spsus.has_family(name):
-      if spsus.has_scheduled(family_name,ententy,"família"): 
+   if spsus.has_family(family_name):
+      if spsus.has_scheduled(family_name,"família"): 
          spsus.show_family_scheduled(family_name)
       else:
          print("Familia sem cuidados de saúde marcados.")
@@ -179,8 +179,8 @@ def commandLCF(commands):
 def commandLSP(commands):
 #Listar serviços marcados a profissional 
    category = commands[1]
-   professional_name = commmands[2]
-   if spsus.has_professional(professional_name):
+   professional_name = commands[2]
+   if spsus.has_professional(professional_name,category):
       if spsus.has_scheduled(professional_name,"profissional"):
          spsus.show_professional_scheduled(professional_name)
       else:
