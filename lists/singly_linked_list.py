@@ -38,7 +38,6 @@ class SinglyLinkedList ():
             pass
         return self.tail.get_element()
 
-
     # Returns the element at the specified position in the list.
 
     # Range of valid positions: 0, ..., size()-1.
@@ -53,7 +52,6 @@ class SinglyLinkedList ():
                 return pointer.get_element()
             pointer = pointer.get_next()
             index = index + 1
-
 
     # Returns the position in the list of the
 
@@ -73,9 +71,7 @@ class SinglyLinkedList ():
             index = index + 1
         return -1
 
-
     # Inserts the specified element at the first position in the list.
-
 
     def insert_first(self, element):
         new_node = SingleListNode (element, self.head)
@@ -85,7 +81,6 @@ class SinglyLinkedList ():
         else:
             self.head = new_node
         self.num_elements = self.num_elements + 1
-
 
     # Inserts the specified element at the last position in the list.
 
@@ -99,8 +94,6 @@ class SinglyLinkedList ():
             self.tail = new_node
         self.num_elements = self.num_elements + 1
      
-
-
     # Inserts the specified element at the specified position in the list.
 
     # Range of valid positions: 0, ..., size().
@@ -167,8 +160,7 @@ class SinglyLinkedList ():
         self.tail = pointer
         self.num_elements = self.num_elements - 1
         return old_pointer
-
-    
+   
     # Removes and returns the element at the specified position in the list.
 
     # Range of valid positions: 0, ..., size()-1.
