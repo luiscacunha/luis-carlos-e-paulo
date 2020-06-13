@@ -204,7 +204,7 @@ def commandG(commands):
 #Gravar unidade de saúde
    """
    try:
-        #CODIGO PARA GRAVAÇÃO
+      #CODIGO PARA GRAVAÇÃO
       print("Unidade de saúde gravada.")
    except Exception as e:
       print("Ocorreu um erro na gravação.")
@@ -215,7 +215,7 @@ def commandL(commands):
 #Ler unidade de saúde
    """
    try:
-      #CDIGO PARA CARREGAR
+      #CODIGO PARA CARREGAR
       print("Unidade de saúde carregada.")
    except Exception as e:
       print("Ocorreu um erro no carregamento.")
