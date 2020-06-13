@@ -1,3 +1,6 @@
+from lists import singly_linked_list
+from dictionaries import hash_table
+
 def has_category(category):
     #Verifica se existe categoria
     pass
