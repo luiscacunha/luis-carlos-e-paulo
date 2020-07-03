@@ -17,10 +17,13 @@ class UserManagement:
                 return True
         return False
 
-   def has_age_range(self,age_range):
-      #Verifica se existe faixa etária
-      pass
+    #retorna True se a faixa etária existe.
+    def has_age_range(self,age_range):
+        if age_range in ["Jovem","Adulto","Idoso"]:
+            return True
+        return False
 
-   def add_user(self,name,age_range):
-      #Adiciona utente, utente tem uma faixa etária e um nome
-      pass
+    def add_user(self,name,age_range):
+        #Adiciona utente, utente tem uma faixa etária e um nome
+        newUser = user(name,age_range)
+        self.userList.append(newUser)
