@@ -3,8 +3,6 @@ from models.professional import professional
 
 class TaskListController:
    def __init__(self):
-      self.users = HashTable()
-      #self. = HashTable()
       pass
    
    def has_category(self,category):
