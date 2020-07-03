@@ -1,3 +1,7 @@
+""" 
+    Esta class representa o objecto que contem todos os atributos
+    relativos a um utente.
+"""
 class users:
     def __init__(self,name,age,family):
         self.family = family
@@ -9,6 +13,6 @@ class users:
     
     def get_age(self):
         return self.age
-        
+
     def get_family(self):
         return self.family

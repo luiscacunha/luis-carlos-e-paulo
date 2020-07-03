@@ -19,8 +19,8 @@ class TaskListController:
 
    def has_user(self,name):
       #Verifica se existe utente já registado, profissional de saúde tem uma categoria e um nome
-      return self.users.has_key(name)
-
+      pass
+   
    def has_age_range(self,age_range):
       #Verifica se existe faixa etária
       pass
