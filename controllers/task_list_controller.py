@@ -1,4 +1,3 @@
-from dictionaries.hash_table import HashTable
 from models.users import users
 from models.professional import professional
 
