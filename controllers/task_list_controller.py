@@ -1,4 +1,4 @@
-from models.users import users
+from models.user import user
 from models.professional import professional
 
 class TaskListController:
@@ -17,17 +17,7 @@ class TaskListController:
       #Adiciona profissional de saúde
       pass
 
-   def has_user(self,name):
-      #Verifica se existe utente já registado, profissional de saúde tem uma categoria e um nome
-      pass
-   
-   def has_age_range(self,age_range):
-      #Verifica se existe faixa etária
-      pass
 
-   def add_user(self,name,age_range):
-      #Adiciona utente, utente tem uma faixa etária e um nome
-      pass
 
    def has_family(self,family_name):
       #Adiciona Familia
