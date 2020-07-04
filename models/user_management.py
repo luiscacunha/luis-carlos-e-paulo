@@ -1,6 +1,10 @@
 
 """
+<<<<<<< HEAD
     Esta class é responsavel pela gestão dos objectos relacionados com
+=======
+    Esta class é reponsavel pela gestão dos objectos relacionados com
+>>>>>>> 332a12045f9990c54a9a15b4406336d1e99d6482
     os utentes.
 """
 from models.user import user
