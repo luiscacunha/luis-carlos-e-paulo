@@ -4,6 +4,6 @@
 """
 class category:
     def __init__(self):
-        self.medicine = [1,2]
+        self.medicine = []
         self.nursing = []
         self.helper = []

@@ -6,7 +6,7 @@
 from models.category import category
 
 class categoryManagement:
-        def has_category(self,category):
+        def has_category(self,Category):
             if category in ["Medicina","Enfermagem","Auxiliar"]:
                 return True
             return False
@@ -35,8 +35,8 @@ class categoryManagement:
                 return True
             return False
 
-        def add_professional_in_category(self,category,name):
-            if category == "Medicina":
+        def add_professional_in_category(self,Category,name):
+            if Category == "Medicina":
                 self.add_medicine(name)
             elif category == "Auxiliar":
                 self.add_helper(name)

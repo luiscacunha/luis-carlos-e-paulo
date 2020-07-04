@@ -17,7 +17,7 @@ class professionalManagement:
         #Adiciona profissional de saúde
         newProfessional = professional(name,category)
         self.professionalList.append(newProfessional)
-        categoryManagement.add_professional_in_category(category,name)
+        categoryManagement.add_professional_in_category(self,category,name)
         
 
     def has_professionals(self):
