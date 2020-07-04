@@ -1,4 +1,4 @@
-from health_management import HM
+from views.health_management import HM
 
 if __name__ == "__main__":
     HM()

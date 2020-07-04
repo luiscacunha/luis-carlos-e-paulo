@@ -1,6 +1,6 @@
 
 """
-    Esta class é reponsavel pela getão dos objectos relacionados com
+    Esta class é responsavel pela gestão dos objectos relacionados com
     os utentes.
 """
 from models.user import user
@@ -30,19 +30,19 @@ class UserManagement:
     def disassociate_family(self,user_name):
         #Desassocia utente de familia
         for user in self.userList:
-            if user_name = user.name:
+            if user_name == user.name:
                 user.family= None
 
     def associate_family(self,user_name,family_name):
         #Associa um utente a uma familia
         for user in self.userList:
-            if user_name = user.name:
+            if user_name == user.name:
                 user.family= family_name
 
     def user_have_family(self,user_name):
         #Verifica se utente pertence à uma familia.
         for user in self.userList:
-            if user_name = user.name:
+            if user_name == user.name:
                 if user.family == None:
                     return True
                 return False

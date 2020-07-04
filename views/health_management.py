@@ -1,6 +1,7 @@
 from models.professional_management import professionalManagement
 from models.user_management import UserManagement
 from models.family_management import familyManagement
+from models.category_manager import categoryManagement
 from controllers.task_list_controller import TaskListController
 
 
@@ -10,50 +11,50 @@ class HM:
       pm = professionalManagement()
       fm = familyManagement()
       um = UserManagement()
-
+      cm = categoryManagement()
       while True:
          line = input()
          if not line:
             exit(0)
          commands = line.split(" ")
          if commands[0] == "RP":
-            commandRP(commands)
+            self.commandRP(commands,pm,cm)
          elif commands[0] == "RU":
-            commandRU(commands)
+            self.commandRU(commands,um)
          elif commands[0] == "RF":
-            commandRF(commands)
+            self.commandRF(commands)
          elif commands[0] == "AF":
-            commandAF(commands)
+            self.commandAF(commands)
          elif commands[0] == "DF":
-            commandDF(commands)
+            self.commandDF(commands)
          elif commands[0] == "LP":
-            commandLP()
+            self.commandLP()
          elif commands[0] == "LU":
-            commandLU()
+            self.commandLU()
          elif commands[0] == "LF":
-            commandLF()
+            self.commandLF()
          elif commands[0] == "MF":
-            commandMF(commands)
+            self.commandMF(commands)
          elif commands[0] == "MC":
-            commandMC(commands)
+            self.commandMC(commands)
          elif commands[0] == "CC":
-            commandCC(commands)
+            self.commandCC(commands)
          elif commands[0] == "LCU":
-            commandLCU(commands)
+            self.commandLCU(commands)
          elif commands[0] == "LCF":
-            commandLCF(commands)   
+            self.commandLCF(commands)   
          elif commands[0] == "LSP":
-            commandLSP(commands)         
+            self.commandLSP(commands)         
          elif commands[0] == "LMS":
-            commandLMS(commands)              
+            self.commandLMS(commands)              
          else:
             print("Instrução inválida.")
    
-   def commandRP(commands):
+   def commandRP(self,commands,pm,cm):
    #Regista profissional
       category = commands[1]
       name = commands[2]
-      if pm.has_category(category):
+      if cm.has_category(category):
          if pm.has_professional(name,category):
             print("Profissional existente.")
          else:
@@ -62,20 +63,20 @@ class HM:
       else:
          print("Categoria inexistente.")
    
-   def commandRU(commands):
+   def commandRU(self,commands,um):
    #Registar utente
       name = commands[1]
       age_range= commands[2]
-      if us.has_user(name):
+      if um.has_user(name):
          print("Utente existente.")
       else:
-         if us.has_age_range(age_range):
-            us.add_user(name,age_range)
+         if um.has_age_range(age_range):
+            um.add_user(name,age_range)
             print("Utente registado com sucesso.")
          else:
             print("Faixa etária inexistente.")
             
-   def commandRF(commands):
+   def commandRF(self,commands):
    #Registar família
       family_name = commands[1]
       if fm.has_family(family_name):
@@ -84,14 +85,14 @@ class HM:
          fm.add_family(family_name)
          print("Família registada com sucesso.")
    
-   def commandAF(commands):
+   def commandAF(self,commands):
    #Associar utente a família 
       user_name = commands[1]
       family_name = commands[2]
-      if us.has_family(family_name):
-         if us.has_user(user_name):
-            if not us.user_have_family(user_name):
-               us.associate_family(user_name,family_name)
+      if um.has_family(family_name):
+         if um.has_user(user_name):
+            if not um.user_have_family(user_name):
+               um.associate_family(user_name,family_name)
                print("Utente associado a família.")
             else:
                print("Utente pertence a família.")
@@ -100,12 +101,12 @@ class HM:
       else:
          print("Família inexistente.")
    
-   def commandDF(commands):
+   def commandDF(self,commands):
    #Desassociar utente de famíla
       user_name = commands[1]
-      if us.has_user(user_name):
-         if us.user_have_family(user_name):
-            us.disassociate_user(user_name)
+      if um.has_user(user_name):
+         if um.user_have_family(user_name):
+            um.disassociate_user(user_name)
             print("Utente desassociado de família.")
          else:
             print("Utente não pertence a família.")
@@ -113,14 +114,14 @@ class HM:
          print("Utente inexistente.")
    
    
-   def commandLP():
+   def commandLP(self):
    #Listar profissionais
       if pm.has_professionals():
          pm.show_professionals()
       else:
          print("Sem profissionais registados.")
    
-   def commandLU():
+   def commandLU(self):
    #Listar utentes
       if controller.has_users():
          controller.show_users()
@@ -128,14 +129,14 @@ class HM:
          print("Sem utentes registados.")
    
    
-   def commandLF():
+   def commandLF(self):
    #Listar famílias
       if lm.has_families():
          lm.show_families()
       else:
          print("Sem famílias registadas.")
    
-   def commandMF(commands):
+   def commandMF(self,commands):
    #Mostrar família
       family_name = commands[1]
       if controller.has_family(family_name):
@@ -143,11 +144,11 @@ class HM:
       else:
          print("Família inexistente.")
    
-   def commandMC(commands):
+   def commandMC(self,commands):
    #Marcar cuidados a utente
       pass
    
-   def commandCC(commands):
+   def commandCC(self,commands):
    #Cancelar cuidados marcados a utente
       name = commands[1]
       if controller.has_user(name):
@@ -159,7 +160,7 @@ class HM:
       else:
          print("Utente inexistente.")
    
-   def commandLCU(commands):
+   def commandLCU(self,commands):
    #Listar cuidados marcados a utente
       name = commands[1]
       if controller.has_user(name):
@@ -170,7 +171,7 @@ class HM:
       else:
          print("Utente inexistente.")
    
-   def commandLCF(commands):
+   def commandLCF(self,commands):
    #Listar cuidados marcados a família  
       family_name = commands[1]
       if controller.has_family(family_name):
@@ -181,7 +182,7 @@ class HM:
       else:
          print("Família inexistente.")
    
-   def commandLSP(commands):
+   def commandLSP(self,commands):
    #Listar serviços marcados a profissional 
       category = commands[1]
       professional_name = commands[2]
@@ -193,7 +194,7 @@ class HM:
       else:
          print("Profissional de saúde inexistente.")
    
-   def commandLMS(commands):
+   def commandLMS(self,commands):
    #Listar marcações por tipo de serviço
       service = commands[1]
       if controller.has_service(service):
