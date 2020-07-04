@@ -17,8 +17,6 @@ class TaskListController:
       #Adiciona profissional de saúde
       pass
 
-
-
    def has_family(self,family_name):
       #Adiciona Familia
       pass
