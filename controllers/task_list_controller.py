@@ -5,34 +5,7 @@ class TaskListController:
    def __init__(self):
       pass
    
-   def has_category(self,category):
-      #Verifica se existe categoria
-      pass
 
-   def has_professional(self,name,category):
-      #Verifica se existe profissional já registado
-      pass
-
-   def add_profissional(self,name,category):
-      #Adiciona profissional de saúde
-      pass
-
-
-
-   
-
-
-
-
-   
-
-   def has_professionals(self):
-      #Verificar se lista de profissionais está vázia
-      pass
-
-   def show_professionals(self):
-      #Mostrar profissionals "Categoria_Nome", por ordem alfabética dentro de cada categoria
-      pass
 
 
 
