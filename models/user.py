@@ -3,7 +3,7 @@
     relativos a um utente.
     User são criados sem familia associada.
 """
-family = None
+family = None # User começa sem familia associada.
 
 class user:
     def __init__(self,name,age):
