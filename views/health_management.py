@@ -32,7 +32,7 @@ class HM:
          elif commands[0] == "LU":
             self.commandLU()
          elif commands[0] == "LF":
-            self.commandLF()
+            self.commandLF(lm)
          elif commands[0] == "MF":
             self.commandMF(commands)
          elif commands[0] == "MC":
@@ -129,7 +129,7 @@ class HM:
          print("Sem utentes registados.")
    
    
-   def commandLF(self):
+   def commandLF(self,lm):
    #Listar famílias
       if lm.has_families():
          lm.show_families()
