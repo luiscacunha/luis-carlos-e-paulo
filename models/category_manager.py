@@ -7,7 +7,7 @@ from models.category import category
 
 class categoryManagement:
     def has_category(self,Category):
-        if category in ["Medicina","Enfermagem","Auxiliar"]:
+        if Category in ["Medicina","Enfermagem","Auxiliar"]:
             return True
         return False
 
