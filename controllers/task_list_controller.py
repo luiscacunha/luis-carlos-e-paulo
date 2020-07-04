@@ -19,25 +19,12 @@ class TaskListController:
 
 
 
-   def has_family(self,family_name):
-      #Adiciona Familia
-      pass
+   
 
-   def add_family(self,family_name):
-      #Adiciona nome de familia
-      pass
 
-   def user_have_family(self,user_name):
-      #Verifica se utente pertence à uma familia.
-      pass
 
-   def associate_family(self,user_name,family_name):
-      #Associa um utente a uma familia
-      pass
 
-   def disassociate_user(self,user_name):
-      #Desassocia utente de familia
-      pass
+   
 
    def has_professionals(self):
       #Verificar se lista de profissionais está vázia
@@ -47,9 +34,7 @@ class TaskListController:
       #Mostrar profissionals "Categoria_Nome", por ordem alfabética dentro de cada categoria
       pass
 
-   def has_users(self):
-      #Verifica se lista de utentes está vázia
-      pass
+
 
    def show_users(self):
       """

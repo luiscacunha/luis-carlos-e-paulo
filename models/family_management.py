@@ -9,12 +9,12 @@ class familyManagement:
 
     def has_family(self,family_name):
       #Verifica se já existe familia.
-       for family_name in self.familyList:
-            if family.family_name == family_name:
-                return True
+        if family_name in self.familyList:
+            return True
         return False
 
     def add_family(self,family_name):
         #Adiciona familia
         newFamily = family(family_name)
         self.familyList.append(newFamily)
+    

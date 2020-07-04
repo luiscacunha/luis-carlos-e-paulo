@@ -5,7 +5,6 @@
 """
 from models.user import user
 
-
 class UserManagement:
     userList = []
     
@@ -27,3 +26,32 @@ class UserManagement:
         #Adiciona utente, utente tem uma faixa etária e um nome
         newUser = user(name,age_range)
         self.userList.append(newUser)
+    
+    def disassociate_family(self,user_name):
+        #Desassocia utente de familia
+        for user in self.userList:
+            if user_name = user.name:
+                user.family= None
+
+    def associate_family(self,user_name,family_name):
+        #Associa um utente a uma familia
+        for user in self.userList:
+            if user_name = user.name:
+                user.family= family_name
+
+    def user_have_family(self,user_name):
+        #Verifica se utente pertence à uma familia.
+        for user in self.userList:
+            if user_name = user.name:
+                if user.family == None:
+                    return True
+                return False
+
+    def has_users(self):
+        #Verifica se lista de utentes está vázia
+        if len(self.userList) == 0:
+            return False
+        return True
+
+
+                
