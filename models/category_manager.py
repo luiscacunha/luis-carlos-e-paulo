@@ -10,7 +10,7 @@ class categoryManagement:
         if Category in ["Medicina","Enfermagem","Auxiliar"]:
             return True
         return False
-
+    
     def add_medicine(self,name):
         category.medicine.append(name)
 
