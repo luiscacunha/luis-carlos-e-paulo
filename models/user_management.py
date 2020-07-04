@@ -1,6 +1,6 @@
 
 """
-    Esta class é reponsavel pela getão dos objectos relacionados com
+    Esta class é reponsavel pela gestão dos objectos relacionados com
     os utentes.
 """
 from models.user import user

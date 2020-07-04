@@ -1,4 +1,5 @@
 class professional:
+   
    def __init__(self,category,name):
       self.category = category
       self.name = category
