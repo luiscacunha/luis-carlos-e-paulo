@@ -1,9 +1,16 @@
-from ..controllers.task_list_controller import TaskListController
+from models.professional_management import professionalManagement
+from models.user_management import UserManagement
+from models.family_management import familyManagement
+from controllers.task_list_controller import TaskListController
+
 
 class HM:
    def __init__(self):
       controller = TaskListController()
-   
+      pm = professionalManagement()
+      fm = familyManagement()
+      um = UserManagement()
+
       while True:
          line = input()
          if not line:
@@ -46,11 +53,11 @@ class HM:
    #Regista profissional
       category = commands[1]
       name = commands[2]
-      if controller.has_category(category):
-         if controller.has_professional(name,category):
+      if pm.has_category(category):
+         if pm.has_professional(name,category):
             print("Profissional existente.")
          else:
-            controller.add_profissional(name,category)
+            pm.add_profissional(name,category)
             print("Profissional registado com sucesso.")
       else:
          print("Categoria inexistente.")
@@ -59,11 +66,11 @@ class HM:
    #Registar utente
       name = commands[1]
       age_range= commands[2]
-      if controller.has_user(name):
+      if us.has_user(name):
          print("Utente existente.")
       else:
-         if controller.has_age_range(age_range):
-            controller.add_user(name,age_range)
+         if us.has_age_range(age_range):
+            us.add_user(name,age_range)
             print("Utente registado com sucesso.")
          else:
             print("Faixa etária inexistente.")
@@ -71,20 +78,20 @@ class HM:
    def commandRF(commands):
    #Registar família
       family_name = commands[1]
-      if controller.has_family(family_name):
+      if fm.has_family(family_name):
          print("Família existente.")
       else:
-         controller.add_family(family_name)
+         fm.add_family(family_name)
          print("Família registada com sucesso.")
    
    def commandAF(commands):
    #Associar utente a família 
       user_name = commands[1]
       family_name = commands[2]
-      if controller.has_family(family_name):
-         if controller.has_user(user_name):
-            if not controller.user_have_family(user_name):
-               controller.associate_family(user_name,family_name)
+      if us.has_family(family_name):
+         if us.has_user(user_name):
+            if not us.user_have_family(user_name):
+               us.associate_family(user_name,family_name)
                print("Utente associado a família.")
             else:
                print("Utente pertence a família.")
@@ -96,9 +103,9 @@ class HM:
    def commandDF(commands):
    #Desassociar utente de famíla
       user_name = commands[1]
-      if controller.has_user(user_name):
-         if controller.user_have_family(user_name):
-            controller.disassociate_user(user_name)
+      if us.has_user(user_name):
+         if us.user_have_family(user_name):
+            us.disassociate_user(user_name)
             print("Utente desassociado de família.")
          else:
             print("Utente não pertence a família.")
@@ -108,8 +115,8 @@ class HM:
    
    def commandLP():
    #Listar profissionais
-      if controller.has_professionals():
-         controller.show_professionals()
+      if pm.has_professionals():
+         pm.show_professionals()
       else:
          print("Sem profissionais registados.")
    
@@ -123,8 +130,8 @@ class HM:
    
    def commandLF():
    #Listar famílias
-      if controller.has_families():
-         controller.show_families()
+      if lm.has_families():
+         lm.show_families()
       else:
          print("Sem famílias registadas.")
    

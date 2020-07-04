@@ -1,5 +1,5 @@
 """
-    Esta class é reponsavel pela getão dos objectos relacionados com familia.
+    Esta class é reponsavel pela gestão dos objectos relacionados com familia.
 """
 
 from models.family import family
@@ -18,3 +18,12 @@ class familyManagement:
         newFamily = family(family_name)
         self.familyList.append(newFamily)
     
+    def has_families(self):
+        if len(self.familyList) == 0:
+            return True
+        return False
+    
+    def show_families(self):
+        #Mostrar todas as familias por ordem alfabética.
+        for family in self.familyList:
+            print(family.family)

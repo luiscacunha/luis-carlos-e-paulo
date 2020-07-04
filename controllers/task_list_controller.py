@@ -4,10 +4,6 @@ from models.professional import professional
 class TaskListController:
    def __init__(self):
       pass
-   
-
-
-
 
    def show_users(self):
       """
@@ -16,14 +12,6 @@ class TaskListController:
       Se um utente não tiver família associada, deve ser só indicada a faixa etária
       Familia FaixaEtária Nome ou FaixaEtária Nome
       """
-      pass
-
-   def has_families(self):
-      #Verifica se lista familias está vázia
-      pass
-
-   def show_families(self):
-      #Mostrar todas as familias por ordem alfabética.
       pass
 
    def show_family(self,family_name):
