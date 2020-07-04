@@ -4,7 +4,7 @@
     os utentes.
 """
 from models.user import user
-
+from models.family_management import familyManagement
 class UserManagement:
     userList = []
     

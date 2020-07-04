@@ -27,3 +27,4 @@ class familyManagement:
         #Mostrar todas as familias por ordem alfabética.
         for family in self.familyList:
             print(family.family)
+    
