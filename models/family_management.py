@@ -9,8 +9,9 @@ class familyManagement:
 
     def has_family(self,family_name):
       #Verifica se já existe familia.
-        if family_name in self.familyList:
-            return True
+        for family in self.familyList:
+            if family.family_name == family_name:
+                return True
         return False
 
     def add_family(self,family_name):
