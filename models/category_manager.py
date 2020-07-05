@@ -14,15 +14,15 @@ class categoryManagement:
     
     def add_medicine(self,name,categoria):
         categoria.medicine.append(name)
-        self.sort_categorys(categoria.medicine)
+        #self.sort_categorys(categoria.medicine)
 
     def add_nursing(self,name,categoria):
         categoria.nursing.append(name)
-        self.sort_categorys(categoria.nursing)
+        #self.sort_categorys(categoria.nursing)
 
     def add_helper(self,name,categoria):
         categoria.helper.append(name)
-        self.sort_categorys(categoria.helper)
+        #self.sort_categorys(categoria.helper)
 
     def has_helper(self,name,categoria): 
         for helper in categoria.helper:
