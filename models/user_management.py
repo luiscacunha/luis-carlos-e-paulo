@@ -5,9 +5,12 @@
 """
 from models.user import user
 from models.family_management import familyManagement
+from models.category import category
+from models.category_manager import categoryManagement
+
 class UserManagement:
     userList = []
-    
+    categoria = category ()
      # retorna True se o nome do utente já existir na lista,
     # caso contrario retorna False
     def has_user(self,name):
@@ -61,10 +64,11 @@ class UserManagement:
 
     def show_users (self):
         #Mostrar os utentes em ordem alfabetica
-        if familyManagement.has_families():
-            for family in familyManagement.familyList:
-                print (family.name)
-
+        for user in self.userList:
+            if self.user_has_family (user.name):
+                print ("encontrei")
+            else:
+                print ("vamos seguir em frente")
 
 
                 
