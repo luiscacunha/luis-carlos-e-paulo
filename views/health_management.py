@@ -50,10 +50,7 @@ class HM:
             self.commandLMS(commands)   
          else:
             print("Instrução inválida.")
-            
-            """           
-         
-   
+                 
    def commandRP(self,commands,controllers):
    #Regista profissional
       category = commands[1]
@@ -133,8 +130,8 @@ class HM:
    
    def commandLU(self):
    #Listar utentes
-      if controller.has_users():
-         controller["User"].show_users()
+      if controllers["User"].has_users():
+         controllers["User"].show_users()
       else:
          print("Sem utentes registados.")
    
