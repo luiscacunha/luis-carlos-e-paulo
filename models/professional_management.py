@@ -32,7 +32,8 @@ class professionalManagement:
 
     def show_professionals(self):
         #Mostrar profissionals "Categoria_Nome", por ordem alfabética dentro de cada categoria
-        pass
+        for family in self.familyList:
+            print(family.family_name)
   
     def add_professional_in_category(self,category_name,name,categoria):
         if category_name == "Medicina":
