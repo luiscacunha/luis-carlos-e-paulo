@@ -33,7 +33,7 @@ class HM:
          elif commands[0] == "LF":
             self.commandLF(controllers)          
          elif commands[0] == "LU":
-            self.commandLU()
+            self.commandLU(controllers)
          elif commands[0] == "MF":
             self.commandMF(commands)
          elif commands[0] == "MC":
@@ -128,7 +128,7 @@ class HM:
       else:
          print("Sem profissionais registados.")   
    
-   def commandLU(self):
+   def commandLU(self,controllers):
    #Listar utentes
       if controllers["User"].has_users():
          controllers["User"].show_users()
