@@ -59,5 +59,12 @@ class UserManagement:
             return False
         return True
 
+    def show_users (self):
+        #Mostrar os utentes em ordem alfabetica
+        if familyManagement.has_families():
+            for family in familyManagement.familyList:
+                print (family.name)
+
+
 
                 

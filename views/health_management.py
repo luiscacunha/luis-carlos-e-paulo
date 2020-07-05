@@ -31,16 +31,9 @@ class HM:
          elif commands[0] == "LP":
             self.commandLP(controllers)         
          elif commands[0] == "LF":
-            self.commandLF(controllers)      
-         else:
-            print("Instrução inválida.")
-      """ 
-         
-         
-         
+            self.commandLF(controllers)          
          elif commands[0] == "LU":
             self.commandLU()
-        
          elif commands[0] == "MF":
             self.commandMF(commands)
          elif commands[0] == "MC":
@@ -54,7 +47,11 @@ class HM:
          elif commands[0] == "LSP":
             self.commandLSP(commands)         
          elif commands[0] == "LMS":
-            self.commandLMS(commands)   """           
+            self.commandLMS(commands)   
+         else:
+            print("Instrução inválida.")
+            
+            """           
          
    
    def commandRP(self,commands,controllers):
@@ -133,9 +130,7 @@ class HM:
          controllers["Professional"].show_professionals()
       else:
          print("Sem profissionais registados.")   
-
-   """  
-
+   
    def commandLU(self):
    #Listar utentes
       if controller.has_users():
@@ -144,7 +139,7 @@ class HM:
          print("Sem utentes registados.")
    
    
-   
+   """
    
    def commandMF(self,commands,controller):
    #Mostrar família
