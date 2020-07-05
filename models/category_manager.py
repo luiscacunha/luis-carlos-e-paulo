@@ -14,27 +14,38 @@ class categoryManagement:
     
     def add_medicine(self,name,categoria):
         categoria.medicine.append(name)
+        self.sort_categorys(categoria.medicine)
 
     def add_nursing(self,name,categoria):
         categoria.nursing.append(name)
+        self.sort_categorys(categoria.nursing)
 
     def add_helper(self,name,categoria):
         categoria.helper.append(name)
+        self.sort_categorys(categoria.helper)
 
-    def has_helper(self,name,categoria):
-        if name in categoria.helper:
-            return True
-        return False
+    def has_helper(self,name,categoria): 
+        for helper in categoria.helper:
+            if name ==  helper:
+                return True
+            return False
 
-    def has_medicine(self,name):
-        if name in categoria.medicine:
-            return True
-        return False
+    def has_medicine(self,name,categoria):
+        for medicine in categoria.medicine:
+            if name ==  medicine:
+                return True
+            return False
         
-    def has_nursing(self,name):
-        if name in categoria.nursing:
-            return True
-        return False
+    def has_nursing(self,name,categoria):
+        for nursing in categoria.nursing:
+            if name ==  nursing:
+                return True
+            return False
 
- 
-            
+    def sort_categorys(self,categorylist):
+        for i in range(len(categorylist)):
+            for j in range(len(categorylist)-i-1):
+                if categorylist[j] > categorylist[j+1]:
+                    tmp = categorylist[j]
+                    categorylist[j] = categorylist[j+1]
+                    categorylist[j+1] = tmp

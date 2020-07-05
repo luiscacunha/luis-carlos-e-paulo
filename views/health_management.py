@@ -24,19 +24,23 @@ class HM:
             self.commandRU(commands,controllers)
          elif commands[0] == "RF":
             self.commandRF(commands,controllers)
+         elif commands[0] == "AF":
+            self.commandAF(commands,controllers)  
+         elif commands[0] == "DF":
+            self.commandDF(commands,controllers) 
+         elif commands[0] == "LP":
+            self.commandLP(controllers)         
+         elif commands[0] == "LF":
+            self.commandLF(controllers)      
          else:
             print("Instrução inválida.")
       """ 
-         elif commands[0] == "AF":
-            self.commandAF(commands)
-         elif commands[0] == "DF":
-            self.commandDF(commands)
-         elif commands[0] == "LP":
-            self.commandLP()
+         
+         
+         
          elif commands[0] == "LU":
             self.commandLU()
-         elif commands[0] == "LF":
-            self.commandLF(lm)
+        
          elif commands[0] == "MF":
             self.commandMF(commands)
          elif commands[0] == "MC":
@@ -86,16 +90,16 @@ class HM:
          print("Família existente.")
       else:
          controllers["Family"].add_family(family_name)
-         print("Família registada com sucesso.")        
-   """  
-   def commandAF(self,commands):
+         print("Família registada com sucesso.") 
+         
+   def commandAF(self,commands,controllers):
    #Associar utente a família 
       user_name = commands[1]
       family_name = commands[2]
-      if um.has_family(family_name):
-         if um.has_user(user_name):
-            if not um.user_have_family(user_name):
-               um.associate_family(user_name,family_name)
+      if controllers["Family"].has_family(family_name):
+         if controllers["User"].has_user(user_name):
+            if not controllers["User"].user_have_family(user_name):
+               controllers["User"].associate_family(user_name,family_name)
                print("Utente associado a família.")
             else:
                print("Utente pertence a família.")
@@ -104,26 +108,34 @@ class HM:
       else:
          print("Família inexistente.")
    
-   def commandDF(self,commands):
+   def commandDF(self,commands,controllers):
    #Desassociar utente de famíla
       user_name = commands[1]
-      if um.has_user(user_name):
-         if um.user_have_family(user_name):
-            um.disassociate_user(user_name)
+      if controllers["User"].has_user(user_name):
+         if controllers["User"].user_have_family(user_name):
+            controllers["User"].disassociate_user(user_name)
             print("Utente desassociado de família.")
          else:
             print("Utente não pertence a família.")
       else:
          print("Utente inexistente.")
-   
-  
-   def commandLP(self):
-   #Listar profissionais
-      if pm.has_professionals():
-         pm.show_professionals()
+
+   def commandLF(self,controllers):
+   #Listar famílias
+      if controllers["Family"].has_families():
+         controllers["Family"].show_families()
       else:
-         print("Sem profissionais registados.")
+         print("Sem famílias registadas.")
    
+   def commandLP(self,controllers):
+   #Listar profissionais
+      if controllers["Professional"].has_professionals():
+         controllers["Professional"].show_professionals()
+      else:
+         print("Sem profissionais registados.")   
+
+   """  
+
    def commandLU(self):
    #Listar utentes
       if controller.has_users():
@@ -132,12 +144,7 @@ class HM:
          print("Sem utentes registados.")
    
    
-   def commandLF(self,controller):
-   #Listar famílias
-      if controller["Family"].has_families():
-         controller["Family"].show_families()
-      else:
-         print("Sem famílias registadas.")
+   
    
    def commandMF(self,commands,controller):
    #Mostrar família

@@ -25,14 +25,14 @@ class professionalManagement:
         
 
     def has_professionals(self):
-      #Verificar se lista de profissionais está vázia
+        #Verificar se lista de profissionais está vázia
         if len(self.professionalList) == 0:
-            return True
-        return False
+            return False
+        return True
 
     def show_professionals(self):
-      #Mostrar profissionals "Categoria_Nome", por ordem alfabética dentro de cada categoria
-      pass
+        #Mostrar profissionals "Categoria_Nome", por ordem alfabética dentro de cada categoria
+        pass
   
     def add_professional_in_category(self,category_name,name,categoria):
         if category_name == "Medicina":

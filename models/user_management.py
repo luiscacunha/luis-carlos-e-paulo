@@ -27,25 +27,31 @@ class UserManagement:
         newUser = user(name,age_range)
         self.userList.append(newUser)
     
-    def disassociate_family(self,user_name):
+    def disassociate_user(self,user_name):
         #Desassocia utente de familia
         for user in self.userList:
             if user_name == user.name:
+                for family in familyManagement.familyList:
+                    if family.family_name == user.family:
+                        family.family_members.append(user.family)
                 user.family= None
 
     def associate_family(self,user_name,family_name):
         #Associa um utente a uma familia
         for user in self.userList:
             if user_name == user.name:
-                user.family= family_name
+                user.family= family_name    
+                for family in familyManagement.familyList:
+                    if family.family_name == family_name:
+                        family.family_members.append(user_name)
 
     def user_have_family(self,user_name):
         #Verifica se utente pertence à uma familia.
         for user in self.userList:
             if user_name == user.name:
                 if user.family == None:
-                    return True
-                return False
+                    return False
+                return True
 
     def has_users(self):
         #Verifica se lista de utentes está vázia
