@@ -11,7 +11,8 @@ from models.category_manager import categoryManagement
 class UserManagement:
     userList = []
     categoria = category ()
-     # retorna True se o nome do utente já existir na lista,
+
+    # retorna True se o nome do utente já existir na lista,
     # caso contrario retorna False
     def has_user(self,name):
         for user in self.userList:
