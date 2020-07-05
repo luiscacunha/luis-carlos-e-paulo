@@ -53,7 +53,6 @@ class professionalManagement:
         for name in auxiliarList:
             print ("Auxiliar {}.".format (name))
 
-  #beat
     def add_professional_in_category(self,category_name,name,categoria):
         if category_name == "Medicina":
             categoryManagement.add_medicine(self,name,categoria)
