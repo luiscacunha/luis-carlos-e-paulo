@@ -30,7 +30,7 @@ class familyManagement:
     def show_families(self):
         #Mostrar todas as familias por ordem alfabética.
         for family in self.familyList:
-            print(family.family_name)
+            print ("{}.".format (family.family_name))
 
     def sort_families(self):
         for i in range(len(self.familyList)):
