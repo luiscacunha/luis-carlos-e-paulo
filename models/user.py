@@ -12,5 +12,5 @@ class user:
         self.name = name
 
     def toString(self):
-      return "%s %s %s" %(self.family, self.age,self.name)
+      return "%s %s %s." %(self.family, self.age,self.name)
 

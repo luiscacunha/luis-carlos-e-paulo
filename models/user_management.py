@@ -47,8 +47,8 @@ class UserManagement:
         for user in self.userList:
             if user_name == user.name:
                 user.family= family_name    
-                for i in range(len(familyManagement.familyList)-1):
-                    if familyManagement.familyList[i].family_name == family_name:
+                for i in range(len(familyManagement.familyList)):
+                    if familyManagement.familyList[i].family_name == family_name:                
                         familyManagement.familyList[i].family_members.append(user)
                         del (familyManagement.unknown_Family[i])
 
@@ -68,9 +68,11 @@ class UserManagement:
 
     def show_users (self):
         #Mostrar os utentes em ordem alfabetica
-        all_users = self.sort_family_age(self.sort_familyMembers(self.all_family_members_list()))
+        all_users = self.all_family_members_list()
+        self.sort_familyMembers(all_users)
+        self.sort_family_age(all_users)
         for user in all_users:
-            user.toString()
+            print(user.toString())
 
     def sort_familyMembers(self,family):
         for i in range(len(family)):
