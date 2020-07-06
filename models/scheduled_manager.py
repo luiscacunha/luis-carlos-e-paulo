@@ -12,8 +12,9 @@ class scheduledManagment:
     def add_scheduled(self,professionals,name):
         for user in UserManagement.userList:
             if name == user.name:
-                newscheduled = scheduled(user,professionals[2],professional(professionals[0],professionals[1]))
-                user.scheduled.append(newscheduled)
+                for scheduledProfessional in professionals:
+                    newscheduled = scheduled(user,scheduledProfessional[2],professional(scheduledProfessional[0],scheduledProfessional[1]))
+                    user.scheduled.append(newscheduled)
 
     def show_user_scheduled(self,name):
       """
@@ -23,4 +24,4 @@ class scheduledManagment:
       for user in UserManagement.userList:
             if name == user.name:
                 for scheduled in user.scheduled:
-                    print(scheduled.toString("LCU"))
+                    print("%s %s %s." %(scheduled.service, scheduled.professional.category,scheduled.professional.name))

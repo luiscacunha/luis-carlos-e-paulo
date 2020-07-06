@@ -80,6 +80,6 @@ class UserManagement:
     def has_scheduled(self,name):
         for user in self.userList:
             if name == user.name:
-                if len(user.scheduled) > 0 :
-                    return True
-                return False
+                if len(user.scheduled) == 0 :
+                    return False
+                return True
