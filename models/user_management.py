@@ -90,8 +90,9 @@ class UserManagement:
                     family[j+1] = tmp
 
     def all_family_members_list(self):
+        families = list()
         for family in familyManagement.familyList:
-            families += family
+            families += family.family_members
         self.sort_familyMembers(families)
         self.sort_family_age(families)
         return families
