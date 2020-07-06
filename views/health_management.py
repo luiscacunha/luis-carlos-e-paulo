@@ -206,9 +206,7 @@ class HM:
          else:
             print("Utente sem cuidados de saúde marcados.")
       else:
-         print("Utente inexistente.")
-       
-      "olha"
+         print("Utente inexistente.")    
       
    """
      
