@@ -2,8 +2,8 @@ from models.professional_management import professionalManagement
 from models.user_management import UserManagement
 from models.family_management import familyManagement
 from models.category_manager import categoryManagement
+from models.services_Manager import serviceManagement
 from controllers.task_list_controller import TaskListController
-
 
 class HM:
    def __init__(self):
@@ -12,7 +12,8 @@ class HM:
       fm = familyManagement()
       um = UserManagement()
       cm = categoryManagement()
-      controllers = {"Professional":pm,"Family":fm,"User":um,"Category":cm}
+      sm = serviceManagement()
+      controllers = {"Professional":pm,"Family":fm,"User":um,"Category":cm,"Service":sm}
       while True:
          line = input()
          if not line:
@@ -158,8 +159,16 @@ class HM:
       for service in marcacoes:
          if len(service) == 1:
             services.append(service)
+         else:
+            if controllers["Category"].has_category(service[0]) ==  False:
+               print("Categoria inexistente.")
       if controllers["User"].has_user(name):      
          print("Utente existente.")
+      elif controllers["Serivce"].has_services(services) == False:
+         print("Serviço inexistente.")
+      # FUNÇÃO INACABADAAAAA
+         
+
        
       
       

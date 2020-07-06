@@ -8,7 +8,7 @@ class service:
         self.smallSurgery = []
         self.appointment = []
 
-    def has_service(self,servive):
+    def has_service(self,service):
         if service in ["Consulta","Enfermagem","Enfermagem"]:
             return True
         return False
