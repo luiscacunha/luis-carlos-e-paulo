@@ -142,11 +142,13 @@ class HM:
          controllers["Family"].show_family(family_name)
       else:
          print("Família inexistente.")
-   """
-     
+      
    def commandMC(self,commands,controller):
    #Marcar cuidados a utente
       pass
+   """
+     
+   
    
    def commandCC(self,commands,controller):
    #Cancelar cuidados marcados a utente
