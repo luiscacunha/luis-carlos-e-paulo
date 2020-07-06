@@ -175,7 +175,7 @@ class HM:
          else:
             categories.append(service[0])#Se tamnho for diferente de 1 é 
             if controllers["Category"].has_category(service[0]):
-               services.append(marked_service)
+               service.append(marked_service)
                professionals.append(service)
                if professional_aplication == True:
                   if not controllers["Service"].canDoit(service[0],marked_service):
