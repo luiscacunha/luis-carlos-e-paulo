@@ -37,7 +37,7 @@ class HM:
          elif commands[0] == "MF":
             self.commandMF(commands,controllers)
          elif commands[0] == "MC":
-            self.commandMC(commands)
+            self.commandMC(commands,controllers)
          elif commands[0] == "CC":
             self.commandCC(commands)
          elif commands[0] == "LCU":
@@ -143,9 +143,26 @@ class HM:
       else:
          print("Família inexistente.")
       
-   def commandMC(self,commands,controller):
+   def commandMC(self,commands,controllers):
    #Marcar cuidados a utente
-      pass
+      i = 0
+      marcacoes =[]
+      while i !=1:
+         text = input()
+         if not text:
+            i+=1
+         marcacoes.append(text.split(" "))
+      del marcacoes[len(marcacoes)-1]
+      services = []
+      name= commands[2]
+      for service in marcacoes:
+         if len(service) == 1:
+            services.append(service)
+      if controllers["User"].has_user(name):      
+         print("Utente existente.")
+       
+      
+      
    """
      
    
