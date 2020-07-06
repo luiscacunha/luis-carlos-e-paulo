@@ -21,7 +21,6 @@ class familyManagement:
         self.familyList.append(newFamily)
         if len(self.familyList) >1:
             self.sort_families()
-
     
     def has_families(self):
         if len(self.familyList) == 0:
@@ -33,6 +32,15 @@ class familyManagement:
         for family in self.familyList:
             print ("{}.".format (family.family_name))
 
+    def show_family(self,family_name):
+        for family in self.familyList:
+            if family.family_name == family_name:
+                family_shown = family
+                self.sort_familyMembers(family_shown.family_members)
+                self.sort_age(family_shown.family_members)
+                for user in family_shown.family_members:
+                    print ("{} {}.".format (user.age,user.name))                
+
     def sort_families(self):
         for i in range(len(self.familyList)):
             for j in range(len(self.familyList)-i-1):
@@ -40,7 +48,6 @@ class familyManagement:
                     tmp = self.familyList[j]
                     self.familyList[j] = self.familyList[j+1]
                     self.familyList[j+1] = tmp
-                    
     
     def sort_familyMembers(self,family):
         for i in range(len(family)):

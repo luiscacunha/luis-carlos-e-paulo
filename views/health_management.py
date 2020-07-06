@@ -35,7 +35,7 @@ class HM:
          elif commands[0] == "LU":
             self.commandLU(controllers)
          elif commands[0] == "MF":
-            self.commandMF(commands)
+            self.commandMF(commands,controllers)
          elif commands[0] == "MC":
             self.commandMC(commands)
          elif commands[0] == "CC":
@@ -135,17 +135,15 @@ class HM:
       else:
          print("Sem utentes registados.")
    
-   
-   """
-   
-   def commandMF(self,commands,controller):
+   def commandMF(self,commands,controllers):
    #Mostrar família
       family_name = commands[1]
-      if controller.has_family(family_name):
-         controller.show_family(family_name)
+      if controllers["Family"].has_family(family_name):
+         controllers["Family"].show_family(family_name)
       else:
          print("Família inexistente.")
-   
+   """
+     
    def commandMC(self,commands,controller):
    #Marcar cuidados a utente
       pass

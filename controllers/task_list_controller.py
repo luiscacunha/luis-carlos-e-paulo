@@ -4,16 +4,7 @@ from models.professional import professional
 class TaskListController:
    def __init__(self):
       pass
-
-   def show_users(self):
-      """
-      Lista todos os utentes por faixa etária, por ordem alfabética de família em cada faixa etária, e por ordem alfabética de nome dentro de cada família. 
-      As faixas etárias devem ser listadas de acordo com a ordem apresentada na Tabela 2.
-      Se um utente não tiver família associada, deve ser só indicada a faixa etária
-      Familia FaixaEtária Nome ou FaixaEtária Nome
-      """
-      pass
-
+   
    def has_scheduled(self,name,entity):
       #Verifica se name da entity(self,utente/familia/serviço/medico)tem cuidados marcados 
       pass
