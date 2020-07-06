@@ -20,11 +20,31 @@ class scheduledManagment:
 
 
     def show_user_scheduled(self,name):
-      """
-      Mostrar listagem de todos os profissionais de saúde associados a marcações do utente, de acordo com o serviço da marcação, e a sua categoria)
-      Serviço˽Categoria˽NomeProfissional.↵
-      """
-      for user in UserManagement.userList:
+        """
+        Mostrar listagem de todos os profissionais de saúde associados a marcações do utente, de acordo com o serviço da marcação, 
+        e a sua categoria)
+        Serviço˽Categoria˽NomeProfissional.↵
+        """
+        for user in UserManagement.userList:
             if name == user.name:
+                self.sort_user_scheduled(user.scheduled)
                 for scheduled in user.scheduled:
-                    print("%s %s %s." %(scheduled.service, scheduled.professional.category,scheduled.professional.name))
+                    print(scheduled.toString("LCU"))
+    
+    def sort_user_scheduled(self,userscheduledList):
+        services = ["Consulta","Enfermagem","PequenaCirurgia"]
+        categories = ["Medicina","Enfermagem","Auxiliar"]
+        for i in range(len(userscheduledList)):
+            for j in range(len(userscheduledList)-i-1):
+                if services.index(userscheduledList[j].service) > services.index(userscheduledList[j+1].service):
+                    tmp = userscheduledList[j]
+                    userscheduledList[j] = userscheduledList[j+1]
+                    userscheduledList[j+1] = tmp
+                else:
+                    if categories.index(userscheduledList[j].professional.category) > categories.index(userscheduledList[j+1].professional.category):
+                        tmp = userscheduledList[j]
+                        userscheduledList[j] = userscheduledList[j+1]
+                        userscheduledList[j+1] = tmp
+
+        
+        
