@@ -13,12 +13,7 @@ class TaskListController:
       #Cancelar cuidados marcados do utente.
       pass
 
-   def show_user_scheduled(self,name):
-      """
-      Mostrar listagem de todos os profissionais de saúde associados a marcações do utente, de acordo com o serviço da marcação, e a sua categoria)
-      Serviço˽Categoria˽NomeProfissional.↵
-      """
-      pass
+
 
    def show_family_scheduled(self,family_name):
       """

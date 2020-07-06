@@ -10,6 +10,7 @@ class user:
         self.family = family
         self.age = age
         self.name = name
+        self.scheduled = []
 
     def toString(self):
       return "%s %s %s." %(self.family, self.age,self.name)

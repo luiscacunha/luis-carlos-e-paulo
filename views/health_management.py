@@ -3,6 +3,7 @@ from models.user_management import UserManagement
 from models.family_management import familyManagement
 from models.category_manager import categoryManagement
 from models.services_Manager import serviceManagement
+from models.scheduled_manager import scheduledManagment
 from controllers.task_list_controller import TaskListController
 
 class HM:
@@ -13,7 +14,8 @@ class HM:
       um = UserManagement()
       cm = categoryManagement()
       sm = serviceManagement()
-      controllers = {"Professional":pm,"Family":fm,"User":um,"Category":cm,"Service":sm}
+      sc = scheduledManagment()
+      controllers = {"Professional":pm,"Family":fm,"User":um,"Category":cm,"Service":sm,"Scheduled":sc}
       while True:
          line = input()
          if not line:
@@ -42,7 +44,7 @@ class HM:
          elif commands[0] == "CC":
             self.commandCC(commands)
          elif commands[0] == "LCU":
-            self.commandLCU(commands)
+            self.commandLCU(commands,controllers)
          elif commands[0] == "LCF":
             self.commandLCF(commands)   
          elif commands[0] == "LSP":
@@ -173,6 +175,7 @@ class HM:
          else:
             categories.append(service[0])#Se tamnho for diferente de 1 é 
             if controllers["Category"].has_category(services[0]):
+               services.append(marked_service)
                professionals.append(service)
                if professional_aplication == True:
                   if not controllers["Service"].canDoit(service[0],marked_service):
@@ -190,10 +193,20 @@ class HM:
       elif have_PC == True and PC[0] != True:
          print("Sequência inválida.")
       else:
+         controllers["Scheduled"].add_scheduled(professionals,name)
          print("Cuidados marcados com sucesso.")
       # FUNÇÃO INACABADAAAAA
          
-
+   def commandLCU(self,commands,controllers):
+   #Listar cuidados marcados a utente
+      name = commands[1]
+      if controllers["User"].has_user(name):
+         if controllers["User"].has_scheduled(name): 
+            controllers["Scheduled"].show_user_scheduled(name)
+         else:
+            print("Utente sem cuidados de saúde marcados.")
+      else:
+         print("Utente inexistente.")
        
       
       
@@ -213,16 +226,7 @@ class HM:
       else:
          print("Utente inexistente.")
    
-   def commandLCU(self,commands,controller):
-   #Listar cuidados marcados a utente
-      name = commands[1]
-      if controller.has_user(name):
-         if controller.has_scheduled(name,"utente"): 
-            controller.show_user_scheduled(name)
-         else:
-            print("Utente sem cuidados de saúde marcados.")
-      else:
-         print("Utente inexistente.")
+
    
    def commandLCF(self,commands,controller):
    #Listar cuidados marcados a família  
