@@ -13,10 +13,6 @@ class scheduledManagment:
         i = 0
         for us in UserManagement.userList:
             if name == us.name:
-                #print ("Estamos dentro do if \n")
-                #print (professionals)
-                #print (us.name)
-                #print (UserManagement.userList[i].scheduled)
                 for scheduledProfessional in professionals:
                     newscheduled = scheduled(user,scheduledProfessional[2],professional(scheduledProfessional[0],scheduledProfessional[1]))
                     UserManagement.userList[i].scheduled.append(newscheduled)
