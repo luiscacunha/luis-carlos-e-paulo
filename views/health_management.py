@@ -164,6 +164,8 @@ class HM:
       marked_service = str
       have_PC = False
       PC= ["Consulta","PequenaCirurgia","Consulta",True]
+      print (marcacoes)
+      print ("antes do work")
       for service in marcacoes:
          if len(service) == 1:#Verifica se é tamanho 1 se for é apenas identificação de serviço
             services.append(service[0])
@@ -174,12 +176,16 @@ class HM:
                del(PC[0])
          else:
             categories.append(service[0])#Se tamnho for diferente de 1 é 
-            if controllers["Category"].has_category(services[0]):
-               service.append(marked_service)
+            if controllers["Category"].has_category(service[0]):
+               services.append(marked_service)
+               print (services)
+               print ("servicos")
                professionals.append(service)
+               print (professionals)
                if professional_aplication == True:
                   if not controllers["Service"].canDoit(service[0],marked_service):
                      professional_aplication = False
+      print (professionals)
       if not controllers["User"].has_user(name):      
          print("Utente inexistente.")
       elif not controllers["Service"].has_services(services):
