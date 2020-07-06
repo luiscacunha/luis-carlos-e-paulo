@@ -174,7 +174,7 @@ class HM:
                del(PC[0])
          else:
             categories.append(service[0])#Se tamnho for diferente de 1 é 
-            if controllers["Category"].has_category(services[0]):
+            if controllers["Category"].has_category(service[0]):
                service.append(marked_service)
                professionals.append(service)
                if professional_aplication == True:
