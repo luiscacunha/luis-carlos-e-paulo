@@ -94,3 +94,4 @@ class UserManagement:
             families += family
         self.sort_familyMembers(families)
         self.sort_family_age(families)
+        return families
