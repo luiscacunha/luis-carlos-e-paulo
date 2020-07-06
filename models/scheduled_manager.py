@@ -16,6 +16,7 @@ class scheduledManagment:
                 for scheduledProfessional in professionals:
                     newscheduled = scheduled(user,scheduledProfessional[2],professional(scheduledProfessional[0],scheduledProfessional[1]))
                     UserManagement.userList[i].scheduled.append(newscheduled)
+                    print(UserManagement.userList[i].scheduled)
             i+=1
 
 
