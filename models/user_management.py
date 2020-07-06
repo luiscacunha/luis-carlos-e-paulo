@@ -11,7 +11,8 @@ from models.category_manager import categoryManagement
 class UserManagement:
     userList = []
     categoria = category ()
-     # retorna True se o nome do utente já existir na lista,
+
+    # retorna True se o nome do utente já existir na lista,
     # caso contrario retorna False
     def has_user(self,name):
         for user in self.userList:
@@ -69,6 +70,7 @@ class UserManagement:
 
     def show_users (self):
         #Mostrar os utentes em ordem alfabetica
+<<<<<<< HEAD
         pass
 
 
@@ -79,3 +81,11 @@ class UserManagement:
                     tmp = family[j]
                     family[j] = family[j+1]
                     family[j+1] = tmp
+=======
+        for user in self.userList:
+            if self.user_has_family (user.name):
+                print ("encontrei")
+            else:
+                print ("vamos seguir em frente")
+                
+>>>>>>> 429355ea0ba5748b0efb144142d528d1df2b0f7f
