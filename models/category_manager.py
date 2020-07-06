@@ -12,6 +12,12 @@ class categoryManagement:
             return True
         return False
     
+    def has_categories(self,categoriesList):
+        for category in categoriesList:
+            if self.has_category(category) == False:
+                return False
+        return True
+    
     def add_medicine(self,name,categoria):
         categoria.medicine.append(name)
         #self.sort_categorys(categoria.medicine)

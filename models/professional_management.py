@@ -16,7 +16,15 @@ class professionalManagement:
         for professional in self.professionalList:
             if professional.category == category_name and professional.name == name:
                 return True
-        return False 
+        return False
+
+    def professionals_exist(self,professioanalsList):
+        for professional in professioanalsList:
+            if self.has_professional(professional[1],professional[0]) == False:
+                return False
+        return True
+
+
 
     def add_profissional(self,name,category_name):
         #Adiciona profissional de saúde

@@ -146,6 +146,7 @@ class HM:
       
    def commandMC(self,commands,controllers):
    #Marcar cuidados a utente
+      name= commands[1]
       i = 0
       marcacoes =[]
       while i !=1:
@@ -155,17 +156,41 @@ class HM:
          marcacoes.append(text.split(" "))
       del marcacoes[len(marcacoes)-1]
       services = []
-      name= commands[2]
+      categories = []
+      professionals = []
+      professional_aplication=True
+      marked_service = str
+      have_PC = False
+      PC= ["Consulta","PequenaCirurgia","Consulta",True]
       for service in marcacoes:
-         if len(service) == 1:
-            services.append(service)
+         if len(service) == 1:#Verifica se é tamanho 1 se for é apenas identificação de serviço
+            services.append(service[0])
+            marked_service=service[0]
+            if service[0] == PC[0]:
+               if service[0] == "PequenaCirurgia":
+                  have_PC = True 
+               del(PC[0])
          else:
-            if controllers["Category"].has_category(service[0]) ==  False:
-               print("Categoria inexistente.")
-      if controllers["User"].has_user(name):      
-         print("Utente existente.")
-      elif controllers["Serivce"].has_services(services) == False:
+            categories.append(service[0])#Se tamnho for diferente de 1 é 
+            if controllers["Category"].has_category(services[0]):
+               professionals.append(service)
+               if professional_aplication == True:
+                  if not controllers["Service"].canDoit(service[0],marked_service):
+                     professional_aplication = False
+      if not controllers["User"].has_user(name):      
+         print("Utente inexistente.")
+      elif not controllers["Service"].has_services(services):
          print("Serviço inexistente.")
+      elif not controllers["Category"].has_categories(categories):
+         print("Categoria inexistente.")
+      elif not controllers["Professional"].professionals_exist(professionals) :
+         print("Profissional de saúde inexistente.")
+      elif not professional_aplication :
+         print("Categoria inválida.")
+      elif have_PC == True and PC[0] != True:
+         print("Sequência inválida.")
+      else:
+         print("Cuidados marcados com sucesso.")
       # FUNÇÃO INACABADAAAAA
          
 
