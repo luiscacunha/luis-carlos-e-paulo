@@ -29,7 +29,7 @@ class UserManagement:
         #Adiciona utente, utente tem uma faixa etária e um nome
         newUser = user(name,age_range)
         self.userList.append(newUser)
-        familyManagement.unknown_Family.append(name)
+        familyManagement.unknown_Family.append(newUser)
     
     def disassociate_user(self,user_name):
         #Desassocia utente de familia
@@ -39,7 +39,6 @@ class UserManagement:
                     if familyManagement.familyList[i].family_name == user.family:
                         del (familyManagement.familyList[i])
                         familyManagement.unknown_Family.append(user)
-                        self.sort_familyMembers(familyManagement.unknown_Family)
                 user.family= None
 
     def associate_family(self,user_name,family_name):
@@ -68,33 +67,13 @@ class UserManagement:
 
     def show_users (self):
         #Mostrar os utentes em ordem alfabetica
-        all_users = self.all_family_members_list()
-        self.sort_familyMembers(all_users)
-        self.sort_family_age(all_users)
+        all_users = familyManagement.all_family_members_list(self)
+        familyManagement.sort_familyMembers(self,all_users)
+        familyManagement.sort_age(self,all_users)
         for user in all_users:
             print(user.toString())
+        familyManagement.sort_familyMembers(self,familyManagement.unknown_Family)          
+        familyManagement.sort_age(self,familyManagement.unknown_Family)
+        for user in familyManagement.unknown_Family:
+            print ("{} {}.".format (user.age,user.name))
 
-    def sort_familyMembers(self,family):
-        for i in range(len(family)):
-            for j in range(len(family)-i-1):
-                if family[j].name > family[j+1].name:
-                    tmp = family[j]
-                    family[j] = family[j+1]
-                    family[j+1] = tmp
-
-    def sort_family_age(self,family):
-        ages = ["Jovem","Adulto","Idoso"]
-        for i in range(len(family)):
-            for j in range(len(family)-i-1):
-                if ages.index(family[j].age) > ages.index(family[j+1].age):
-                    tmp = family[j]
-                    family[j] = family[j+1]
-                    family[j+1] = tmp
-
-    def all_family_members_list(self):
-        families = list()
-        for family in familyManagement.familyList:
-            families += family.family_members
-        self.sort_familyMembers(families)
-        self.sort_family_age(families)
-        return families

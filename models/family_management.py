@@ -40,3 +40,30 @@ class familyManagement:
                     tmp = self.familyList[j]
                     self.familyList[j] = self.familyList[j+1]
                     self.familyList[j+1] = tmp
+                    
+    
+    def sort_familyMembers(self,family):
+        for i in range(len(family)):
+            for j in range(len(family)-i-1):
+                if family[j].name > family[j+1].name:
+                    tmp = family[j]
+                    family[j] = family[j+1]
+                    family[j+1] = tmp
+
+    def sort_age(self,family):
+        ages = ["Jovem","Adulto","Idoso"]
+        for i in range(len(family)):
+            for j in range(len(family)-i-1):
+                if ages.index(family[j].age) > ages.index(family[j+1].age):
+                    tmp = family[j]
+                    family[j] = family[j+1]
+                    family[j+1] = tmp
+
+    def all_family_members_list(self):
+        families = list()
+        for family in familyManagement.familyList:
+            if len(family.family_members) > 0:
+                families += family.family_members
+        familyManagement.sort_familyMembers(self,families)
+        familyManagement.sort_age(self,families)
+        return families    
