@@ -10,11 +10,14 @@ from models.professional import professional
 
 class scheduledManagment:
     def add_scheduled(self,professionals,name):
+        i = 0
         for user in UserManagement.userList:
             if name == user.name:
                 for scheduledProfessional in professionals:
                     newscheduled = scheduled(user,scheduledProfessional[2],professional(scheduledProfessional[0],scheduledProfessional[1]))
-                    user.scheduled.append(newscheduled)
+                    UserManagement.userList[i].scheduled.append(newscheduled)
+            i+=1
+
 
     def show_user_scheduled(self,name):
       """
