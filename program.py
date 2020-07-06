@@ -110,17 +110,6 @@ Medicina Alice
 
 LCU Alice
 LCU Bill
-
-Entra 
-Entrar na reunião Zoom
-https://us04web.zoom.us/j/71920363136?pwd=c056ZDlsT294ZVNwNDc3R1pSSzJvQT09
-
-ID da reunião: 719 2036 3136
-Senha: 7hYrY5
-
-
-
-
 """
 
 
