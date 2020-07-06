@@ -70,6 +70,4 @@ class UserManagement:
                 print ("encontrei")
             else:
                 print ("vamos seguir em frente")
-
-
                 
