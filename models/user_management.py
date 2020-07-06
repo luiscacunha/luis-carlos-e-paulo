@@ -11,8 +11,7 @@ from models.category_manager import categoryManagement
 class UserManagement:
     userList = []
     categoria = category ()
-
-    # retorna True se o nome do utente já existir na lista,
+     # retorna True se o nome do utente já existir na lista,
     # caso contrario retorna False
     def has_user(self,name):
         for user in self.userList:
@@ -51,7 +50,6 @@ class UserManagement:
                 for i in range(len(familyManagement.familyList)-1):
                     if familyManagement.familyList[i].family_name == family_name:
                         familyManagement.familyList[i].family_members.append(user)
-                        self.sort_familyMembers(familyManagement.familyList[i].family_members)
                         del (familyManagement.unknown_Family[i])
 
     def user_have_family(self,user_name):
@@ -70,9 +68,9 @@ class UserManagement:
 
     def show_users (self):
         #Mostrar os utentes em ordem alfabetica
-<<<<<<< HEAD
-        pass
-
+        all_users = self.sort_family_age(self.sort_familyMembers(self.all_family_members_list()))
+        for user in all_users:
+            user.toString()
 
     def sort_familyMembers(self,family):
         for i in range(len(family)):
@@ -81,11 +79,18 @@ class UserManagement:
                     tmp = family[j]
                     family[j] = family[j+1]
                     family[j+1] = tmp
-=======
-        for user in self.userList:
-            if self.user_has_family (user.name):
-                print ("encontrei")
-            else:
-                print ("vamos seguir em frente")
-                
->>>>>>> 429355ea0ba5748b0efb144142d528d1df2b0f7f
+
+    def sort_family_age(self,family):
+        ages = ["Jovem","Adulto","Idoso"]
+        for i in range(len(family)):
+            for j in range(len(family)-i-1):
+                if ages.index(family[j].age) > ages.index(family[j+1].age):
+                    tmp = family[j]
+                    family[j] = family[j+1]
+                    family[j+1] = tmp
+
+    def all_family_members_list(self):
+        for family in familyManagement.familyList:
+            families += family
+        self.sort_familyMembers(families)
+        self.sort_family_age(families)
