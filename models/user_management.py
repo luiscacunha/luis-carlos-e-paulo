@@ -29,14 +29,17 @@ class UserManagement:
         #Adiciona utente, utente tem uma faixa etária e um nome
         newUser = user(name,age_range)
         self.userList.append(newUser)
+        familyManagement.unknown_Family.append(name)
     
     def disassociate_user(self,user_name):
         #Desassocia utente de familia
         for user in self.userList:
             if user_name == user.name:
-                for family in familyManagement.familyList:
-                    if family.family_name == user.family:
-                        family.family_members.append(user.family)
+                for i in range(len(familyManagement.familyList)-1):
+                    if familyManagement.familyList[i].family_name == user.family:
+                        del (familyManagement.familyList[i])
+                        familyManagement.unknown_Family.append(user)
+                        self.sort_familyMembers(familyManagement.unknown_Family)
                 user.family= None
 
     def associate_family(self,user_name,family_name):
@@ -44,9 +47,11 @@ class UserManagement:
         for user in self.userList:
             if user_name == user.name:
                 user.family= family_name    
-                for family in familyManagement.familyList:
-                    if family.family_name == family_name:
-                        family.family_members.append(user_name)
+                for i in range(len(familyManagement.familyList)-1):
+                    if familyManagement.familyList[i].family_name == family_name:
+                        familyManagement.familyList[i].family_members.append(user)
+                        self.sort_familyMembers(familyManagement.familyList[i].family_members)
+                        del (familyManagement.unknown_Family[i])
 
     def user_have_family(self,user_name):
         #Verifica se utente pertence à uma familia.
@@ -64,11 +69,13 @@ class UserManagement:
 
     def show_users (self):
         #Mostrar os utentes em ordem alfabetica
-        for user in self.userList:
-            if self.user_has_family (user.name):
-                print ("encontrei")
-            else:
-                print ("vamos seguir em frente")
+        pass
 
 
-                
+    def sort_familyMembers(self,family):
+        for i in range(len(family)):
+            for j in range(len(family)-i-1):
+                if family[j].name > family[j+1].name:
+                    tmp = family[j]
+                    family[j] = family[j+1]
+                    family[j+1] = tmp

@@ -6,10 +6,16 @@ if __name__ == "__main__":
 RU Kiame Jovem
 RU Luis Jovem
 RU Maria Jovem
+RF Escorcio
 RF Cunha
 AF Maria Cunha
 AF Luis Cunha
 DF Kiame
+AF Maria Escorcio
+DF Maria
+DF Maria
+
+
 
 RF Cunha
 RF Escorcio

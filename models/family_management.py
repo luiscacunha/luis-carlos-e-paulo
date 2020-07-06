@@ -6,7 +6,8 @@ from models.family import family
 
 class familyManagement:
     familyList = []
-
+    unknown_Family = []
+    
     def has_family(self,family_name):
       #Verifica se já existe familia.
         for family in self.familyList:

@@ -14,15 +14,6 @@ class TaskListController:
       """
       pass
 
-   def show_family(self,family_name):
-      """
-      Lista todos os utentes de uma família, por ordem de faixa etária, e por ordem alfabética dentro de cada faixa etária. 
-      As faixas etárias devem ser listadas de acordo com a ordem apresentada na Tabela 2
-      Saída com sucesso (self,listagem de utentes da mesma família)
-      FaixaEtária˽Nome.↵
-      """
-      pass
-
    def has_scheduled(self,name,entity):
       #Verifica se name da entity(self,utente/familia/serviço/medico)tem cuidados marcados 
       pass

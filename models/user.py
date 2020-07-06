@@ -11,3 +11,6 @@ class user:
         self.age = age
         self.name = name
 
+    def toString(self):
+      return "%s %s %s" %(self.family, self.age,self.name)
+
