@@ -127,4 +127,4 @@ class scheduledManagment:
         scheduledList = serviceManagement.scheduledList
         self.sort_scheduled(scheduledList)
         for schedules in scheduledList:
-                    print(schedules.toString("LMS"))
+            print(schedules.toString("LMS"))
