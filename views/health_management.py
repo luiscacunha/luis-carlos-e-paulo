@@ -50,7 +50,7 @@ class HM:
          elif commands[0] == "LSP":
             self.commandLSP(commands, controllers)         
          elif commands[0] == "LMS":
-            self.commandLMS(commands)   
+            self.commandLMS(commands, controllers)   
          else:
             print("Instrução inválida.")
                  
@@ -243,14 +243,13 @@ class HM:
       else:
          print("Profissional de saúde inexistente.")
    
-   """
-   def commandLMS(self,commands,controller):
+   def commandLMS(self,commands,controllers):
    #Listar marcações por tipo de serviço
       service = commands[1]
-      if controller.has_service(service):
-         if controller.has_scheduled(service,"serviço"):
-            controller.show_service_scheduled()
+      if controllers["Service"].has_service(service):
+         if controllers["Service"].has_scheduled_service(service):
+            controllers["Scheduled"].show_service_scheduled()
          else:
             print("Serviço sem marcações.")
       else:
-         print("Serviço inexistente.") """
+         print("Serviço inexistente.")

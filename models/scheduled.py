@@ -19,6 +19,8 @@ class scheduled():
             return "%s %s %s %s." %(self.user.name,self.service, self.professional.category,self.professional.name)
         elif "LSP" == typeofList:
             return "%s %s." %(self.service ,self.user.name)
+        elif "LMS" == typeofList:
+            return "%s %s %s." %(self.professional.category, self.professional.name, self.user.name)
 
         
 """
