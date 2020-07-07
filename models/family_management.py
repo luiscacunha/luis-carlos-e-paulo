@@ -71,6 +71,6 @@ class familyManagement:
         for family in familyManagement.familyList:
             if len(family.family_members) > 0:
                 families += family.family_members
-        familyManagement.sort_familyMembers(self,families)
-        familyManagement.sort_age(self,families)
+        self.sort_familyMembers(families)
+        self.sort_age(families)
         return families

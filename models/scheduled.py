@@ -21,15 +21,3 @@ class scheduled():
             return "%s %s." %(self.service ,self.user.name)
         elif "LMS" == typeofList:
             return "%s %s %s." %(self.professional.category, self.professional.name, self.user.name)
-
-        
-"""
-class familyScheduled():
-    pass
-
-class professionalScheduled():
-    pass
-
-class serviceScheduled():
-    pass
-"""

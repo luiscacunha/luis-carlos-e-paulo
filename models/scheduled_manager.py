@@ -3,7 +3,6 @@
 """
 from models.user_management import UserManagement
 from models.user import user
-from models.service import service
 from models.scheduled import scheduled
 from models.services_Manager import serviceManagement
 from models.professional import professional

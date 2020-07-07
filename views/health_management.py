@@ -4,11 +4,9 @@ from models.family_management import familyManagement
 from models.category_manager import categoryManagement
 from models.services_Manager import serviceManagement
 from models.scheduled_manager import scheduledManagment
-from controllers.task_list_controller import TaskListController
 
 class HM:
    def __init__(self):
-      #controller = TaskListController()
       pm = professionalManagement()
       fm = familyManagement()
       um = UserManagement()

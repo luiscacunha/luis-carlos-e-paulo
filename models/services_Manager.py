@@ -1,7 +1,6 @@
 """
     Esta class é reponsavel pela gestão dos objectos relacionados com serviços.
 """
-from models.service import service
 from models.professional import professional
 from models.professional_management import professionalManagement
 
