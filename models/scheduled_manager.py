@@ -125,6 +125,6 @@ class scheduledManagment:
     
     def show_service_scheduled (self):
         scheduledList = serviceManagement.scheduledList
-        scheduledManagment.sort_scheduled (self, scheduledList)
+        self.sort_scheduled(scheduledList)
         for schedules in scheduledList:
                     print(schedules.toString("LMS"))
