@@ -60,7 +60,7 @@ class scheduledManagment:
             if professional.name == name and professional.category == category:
                 self.sort_professional_scheduled(professional.scheduled)
                 for schedules in professional.scheduled:
-                    print(schedules.toString("LCP"))
+                    print(schedules.toString("LSP"))
 
     
     def sort_professional_scheduled(self,professionalScheduled):
