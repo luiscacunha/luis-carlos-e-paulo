@@ -37,7 +37,16 @@ class scheduledManagment:
     def cancel_user_scheduled (self, name):
         for i in range (len (UserManagement.userList)):
             if UserManagement.userList[i].name == name:
+                self.cancel_professional_scheduled(UserManagement.userList[i].scheduled)
                 UserManagement.userList[i].scheduled = []
+
+    def cancel_professional_scheduled(self,scheduleds):
+        for s in scheduleds:
+            for p in professionalManagement.professionalList:
+                if s.professional.name == p.name:
+                    for professionalScheduled in p.scheduled:
+                        if professionalScheduled.user.name == s.user.name:
+                            p.scheduled.remove(professionalScheduled)
 
     def show_user_scheduled(self,name):
         for user in UserManagement.userList:
