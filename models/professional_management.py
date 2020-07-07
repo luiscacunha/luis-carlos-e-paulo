@@ -68,3 +68,11 @@ class professionalManagement:
             categoryManagement.add_helper(self,name,categoria)
         else:
             categoryManagement.add_nursing(self,name,categoria)
+    
+    def sort_professionals(self,scheduled):
+        for i in range(len(scheduled)):
+            for j in range(len(scheduled)-i-1):
+                if scheduled[j].professional.name > scheduled[j+1].professional.name:
+                    tmp = scheduled[j]
+                    scheduled[j] = scheduled[j+1]
+                    scheduled[j+1] = tmp

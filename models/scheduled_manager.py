@@ -7,12 +7,14 @@ from models.service import service
 from models.scheduled import scheduled
 from models.services_Manager import serviceManagement
 from models.professional import professional
+from models.professional_management import professionalManagement
+from models.family_management import familyManagement
 
 class scheduledManagment:
     def add_scheduled(self,professionals,name):
         i = 0
-        for us in UserManagement.userList:
-            if name == us.name:
+        for user in UserManagement.userList:
+            if name == user.name:
                 for scheduledProfessional in professionals:
                     newscheduled = scheduled(user,scheduledProfessional[2],professional(scheduledProfessional[0],scheduledProfessional[1]))
                     UserManagement.userList[i].scheduled.append(newscheduled)
@@ -45,6 +47,30 @@ class scheduledManagment:
                         tmp = userscheduledList[j]
                         userscheduledList[j] = userscheduledList[j+1]
                         userscheduledList[j+1] = tmp
+    
+    def cancel_user_scheduled (self, name):
+        for i in range (len (UserManagement.userList)):
+            if UserManagement.userList[i].name == name:
+                UserManagement.userList[i].scheduled = []
+    
+    def show_family_scheduled(self, family_name):
+        scheduled_familiares = UserManagement.integrantes_scheduled
+        familyManagement.sort_age (self, scheduled_familiares)
+        familyManagement.sort_familyMembers (self, scheduled_familiares)     
+        for i in range (len (scheduled_familiares)):
+            professionalManagement.sort_professionals (self,scheduled_familiares[i].scheduled)
+            for schedules in scheduled_familiares[i].scheduled:
+                print("{} {}".format(scheduled_familiares[i].name,schedules.toString("LCU")))
 
-        
-        
+    def has_scheduled_professional (self, category, professional_name): # vou fazer mais tarde um ciclo utilizando range para aceder bem os condimnetos
+        apointments = 0 # beijos vou dormir
+        apointmentList = []
+        for user in UserManagement.userList:
+            print (user.scheduled[0].professional.name)
+            print (user.scheduled.professional)
+            if user.scheduled.professional.name == professional_name and user.scheduled.professional.category == category:
+                apointments += apointments
+                apointmentList.append (user.scheduled)
+        print (apointments)
+        print (apointmentList)
+

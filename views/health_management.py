@@ -42,13 +42,13 @@ class HM:
          elif commands[0] == "MC":
             self.commandMC(commands,controllers)
          elif commands[0] == "CC":
-            self.commandCC(commands)
+            self.commandCC(commands, controllers)
          elif commands[0] == "LCU":
             self.commandLCU(commands,controllers)
          elif commands[0] == "LCF":
-            self.commandLCF(commands)   
+            self.commandLCF(commands, controllers)   
          elif commands[0] == "LSP":
-            self.commandLSP(commands)         
+            self.commandLSP(commands, controllers)         
          elif commands[0] == "LMS":
             self.commandLMS(commands)   
          else:
@@ -208,47 +208,43 @@ class HM:
       else:
          print("Utente inexistente.")    
       
-   """
-     
-   
-   
-   def commandCC(self,commands,controller):
+   def commandCC(self,commands,controllers):
    #Cancelar cuidados marcados a utente
       name = commands[1]
-      if controller.has_user(name):
-         if controller.has_scheduled(name,"utente"):
-            controller.cancel_user_scheduled(name)
+      if controllers["User"].has_user(name):
+         if controllers["User"].has_scheduled(name):
+            controllers["Scheduled"].cancel_user_scheduled(name)
             print("Cuidados de saúde desmarcados com sucesso.")
          else:
             print("Utente sem cuidados de saúde marcados.")
       else:
          print("Utente inexistente.")
    
-
-   
-   def commandLCF(self,commands,controller):
+   def commandLCF(self,commands,controllers):
    #Listar cuidados marcados a família  
       family_name = commands[1]
-      if controller.has_family(family_name):
-         if controller.has_scheduled(family_name,"família"): 
-            controller.show_family_scheduled(family_name)
+      if controllers["Family"].has_family(family_name):
+         if controllers["User"].has_scheduled_members(family_name): 
+            controllers["Scheduled"].show_family_scheduled(family_name)
          else:
             print("Familia sem cuidados de saúde marcados.")
       else:
          print("Família inexistente.")
    
-   def commandLSP(self,commands,controller):
+   def commandLSP(self,commands,controllers):
    #Listar serviços marcados a profissional 
       category = commands[1]
       professional_name = commands[2]
-      if controller.has_professional(professional_name,category):
-         if controller.has_scheduled(professional_name,"profissional"):
-            controller.show_professional_scheduled(professional_name)
+      if controllers["Professional"].has_professional(professional_name,category):
+         if controllers["Scheduled"].has_scheduled_professional(category, professional_name):
+            #controllers["Scheduled"].show_professional_scheduled(professional_name)
+            print ("Ok")
          else:
             print("Profissional de saúde sem marcações.")
       else:
          print("Profissional de saúde inexistente.")
    
+   """
    def commandLMS(self,commands,controller):
    #Listar marcações por tipo de serviço
       service = commands[1]

@@ -11,6 +11,8 @@ from models.category_manager import categoryManagement
 class UserManagement:
     userList = []
     categoria = category ()
+    integrantes_scheduled = []
+
      # retorna True se o nome do utente já existir na lista,
     # caso contrario retorna False
     def has_user(self,name):
@@ -83,3 +85,17 @@ class UserManagement:
                 if len(user.scheduled) == 0 :
                     return False
                 return True
+
+    def has_scheduled_members (self, family_name): # devia estar no family_management mas nao consigo fazer o import do user_management
+        integrantes = 0
+        for family in familyManagement.familyList:
+            if family_name == family.family_name:
+                integrantes = len(family.family_members)
+                for i in range (integrantes):
+                    familiar = family.family_members[i]
+                    if self.has_scheduled(familiar.name):
+                        self.integrantes_scheduled.append (family.family_members[i])
+        if len (self.integrantes_scheduled) == 0:
+            return False
+        else:
+            return True

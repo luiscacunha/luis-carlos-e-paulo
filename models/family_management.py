@@ -73,4 +73,4 @@ class familyManagement:
                 families += family.family_members
         familyManagement.sort_familyMembers(self,families)
         familyManagement.sort_age(self,families)
-        return families    
+        return families
