@@ -15,6 +15,10 @@ class scheduled():
     def toString(self,typeofList):
         if "LCU" == typeofList:
             return "%s %s %s." %(self.service, self.professional.category,self.professional.name)
+        elif "LCF" == typeofList:
+            return "%s %s %s %s." %(self.user.name,self.service, self.professional.category,self.professional.name)
+        elif "LCP" == typeofList:
+            return "%s %s." %(self.service ,self.user.name)
 
         
 """

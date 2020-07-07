@@ -24,14 +24,11 @@ class professionalManagement:
                 return False
         return True
 
-
-
     def add_profissional(self,name,category_name):
         #Adiciona profissional de saúde
         newProfessional = professional (category_name, name)
         self.professionalList.append(newProfessional)
         self.add_professional_in_category(category_name,name,self.categoria)
-        
 
     def has_professionals(self):
         #Verificar se lista de profissionais está vázia

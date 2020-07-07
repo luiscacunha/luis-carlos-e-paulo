@@ -88,11 +88,18 @@ AF Bob Smith
 AF Claire Smith
 AF Bill Jones
 AF Carl Jones
+MC Carl
+Enfermagem
+Enfermagem Trudy
+Enfermagem Bob
+Consulta
+Medicina Alice
+
 MC Bill
 Consulta
 Medicina Alice
 PequenaCirurgia
-Medicina Bob
+Medicina Alice
 Enfermagem Trudy
 Auxiliar James
 Enfermagem
@@ -101,12 +108,11 @@ Enfermagem Bob
 Consulta
 Medicina Alice
 
-MC Carl
-Enfermagem
-Enfermagem Trudy
-Enfermagem Bob
-Consulta
-Medicina Alice
+LCF Smiths
+LCF Smith
+LCF Jones
+LSP Medicina Halice
+LSP Medicina Alice
 
 LCU Alice
 LCU Bill

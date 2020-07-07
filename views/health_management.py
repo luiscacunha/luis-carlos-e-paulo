@@ -237,8 +237,7 @@ class HM:
       professional_name = commands[2]
       if controllers["Professional"].has_professional(professional_name,category):
          if controllers["Scheduled"].has_scheduled_professional(category, professional_name):
-            #controllers["Scheduled"].show_professional_scheduled(professional_name)
-            print ("Ok")
+            controllers["Scheduled"].show_professional_scheduled(category,professional_name)
          else:
             print("Profissional de saúde sem marcações.")
       else:
