@@ -2,8 +2,12 @@
     Esta class é reponsavel pela gestão dos objectos relacionados com serviços.
 """
 from models.service import service
+from models.professional import professional
+from models.professional_management import professionalManagement
 
 class serviceManagement:
+    scheduledList = []
+
     def has_services(self,listServices):
         for service_to_scheduled in listServices:
             if self.has_service(service_to_scheduled) == False:
@@ -22,4 +26,14 @@ class serviceManagement:
             return True 
         else:
             return False
-        
+              
+    def has_scheduled_service (self,service):
+        scheduled_service = 0
+        for professional in professionalManagement.professionalList:
+            for schedules in professional.scheduled:
+                if schedules.service == service:
+                    self.scheduledList.append (schedules)
+                    scheduled_service = scheduled_service + 1
+        if scheduled_service == 0:
+            return False
+        return True

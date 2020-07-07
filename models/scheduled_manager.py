@@ -77,7 +77,27 @@ class scheduledManagment:
                     tmp = professionalScheduled[j]
                     professionalScheduled[j] = professionalScheduled[j+1]
                     professionalScheduled[j+1] = tmp
-                    
+    
+    def sort_scheduled (self, Scheduled):
+        categories = ["Medicina","Enfermagem","Auxiliar"]
+        for i in range(len(Scheduled)):#ordena por ordem alfabetica de professional
+            for j in range(len(Scheduled)-i-1):
+                if Scheduled[j].professional.name > Scheduled[j+1].professional.name:
+                                tmp = Scheduled[j]
+                                Scheduled[j] = Scheduled[j+1]
+                                Scheduled[j+1] = tmp
+        for i in range(len(Scheduled)):#ordena por categoria
+            for j in range(len(Scheduled)-i-1):
+                if categories.index(Scheduled[j].professional.category) > categories.index(Scheduled[j+1].professional.category):
+                    tmp = Scheduled[j]
+                    Scheduled[j] = Scheduled[j+1]
+                    Scheduled[j+1] = tmp
+        for i in range(len(Scheduled)):#ordena por ordem alfabetica de utente
+            for j in range(len(Scheduled)-i-1):
+                if Scheduled[j].user.name > Scheduled[j+1].user.name:
+                                tmp = Scheduled[j]
+                                Scheduled[j] = Scheduled[j+1]
+                                Scheduled[j+1] = tmp
 
     def sort_user_scheduled(self,userscheduledList):
         services = ["Consulta","Enfermagem","PequenaCirurgia"]
@@ -93,3 +113,9 @@ class scheduledManagment:
                         tmp = userscheduledList[j]
                         userscheduledList[j] = userscheduledList[j+1]
                         userscheduledList[j+1] = tmp
+    
+    def show_service_scheduled (self):
+        scheduledList = serviceManagement.scheduledList
+        scheduledManagment.sort_scheduled (self, scheduledList)
+        for schedules in scheduledList:
+                    print(schedules.toString("LMS"))
